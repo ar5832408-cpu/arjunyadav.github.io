@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Your Name – Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=DM+Sans:wght@400;500&display=swap">
+<style>
+:root{
+  --bg:#FBF8FF; --surface:#FFFFFF; --ink:#2A1B3D; --muted:#625775; --line:#E4DCF0;
+  --plum:#2A1B3D; --gold:#F2B544; --lilac:#C9B8F0; --teal:#1F8A8A; --on-plum:#FBF8FF;
+  --display:'Bricolage Grotesque','Trebuchet MS',sans-serif; --body:'DM Sans',system-ui,sans-serif;
+  box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){ --bg:#17102220; --bg:#171022; --surface:#221733; --ink:#F3EEFB; --muted:#B5A9CC; --line:#3A2C52; --plum:#0F0A18; }
+}
+:root[data-theme="dark"]{ --bg:#171022; --surface:#221733; --ink:#F3EEFB; --muted:#B5A9CC; --line:#3A2C52; --plum:#0F0A18; }
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1.05rem/1.7 var(--body)}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+.wrap{max-width:1040px;margin:0 auto;padding:0 1.5rem}
+
+/* nav */
+nav{position:absolute;top:env(safe-area-inset-top,0px);left:0;right:0;z-index:5;padding:1.25rem 0;color:var(--on-plum)}
+nav .wrap{display:flex;justify-content:space-between;align-items:center}
+nav b{font:800 1.2rem var(--display)}
+nav ul{display:flex;gap:1.5rem;list-style:none;margin:0;padding:0}
+nav a{text-decoration:none;font-weight:500}
+nav a:hover{color:var(--gold)}
+
+/* hero */
+.hero{position:relative;background:var(--plum);color:var(--on-plum);overflow:hidden;padding:9rem 0 11rem}
+.hero h1{font:800 clamp(3rem,10vw,7rem)/.95 var(--display);margin:0 0 1.5rem;letter-spacing:-.03em;max-width:11ch}
+.hero p{max-width:34rem;color:#DCD2EE;font-size:1.2rem;margin:0 0 2rem}
+.btn{display:inline-block;padding:.8rem 1.6rem;border-radius:999px;font-weight:500;text-decoration:none;background:var(--gold);color:#2A1B3D}
+.btn.ghost{background:transparent;border:2px solid var(--lilac);color:var(--on-plum);margin-left:.5rem}
+.btn:hover{transform:translateY(-2px)}
+.orb{position:absolute;border-radius:50%;pointer-events:none}
+.o1{width:380px;height:380px;right:-90px;top:-70px;background:radial-gradient(circle at 30% 30%,var(--gold),#d9822b)}
+.o2{width:170px;height:170px;right:230px;top:300px;background:var(--lilac);opacity:.85}
+.o3{width:90px;height:90px;right:90px;top:430px;border:10px solid var(--teal)}
+.hero .wrap{position:relative;z-index:2}
+.hero h1,.hero p,.hero .cta{animation:rise .9s cubic-bezier(.2,.7,.2,1) both}
+.hero p{animation-delay:.12s}.hero .cta{animation-delay:.24s}
+@keyframes rise{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
+.wave{position:absolute;bottom:-1px;left:0;width:100%;height:110px;display:block}
+.wave path{fill:var(--bg)}
+
+/* sections */
+section{padding:5rem 0}
+h2{font:800 clamp(2rem,5vw,3rem)/1.1 var(--display);margin:0 0 1.5rem;letter-spacing:-.02em}
+.about{display:grid;grid-template-columns:1fr 1.4fr;gap:3rem;align-items:center}
+.portrait{aspect-ratio:1;border-radius:46% 54% 40% 60%/55% 45% 55% 45%;background:linear-gradient(135deg,var(--lilac),var(--teal));display:grid;place-items:center;font:800 5rem var(--display);color:var(--plum)}
+.chips{display:flex;flex-wrap:wrap;gap:.6rem;padding:0;list-style:none;margin:1.5rem 0 0}
+.chips li{padding:.35rem 1rem;border-radius:999px;background:var(--surface);border:1px solid var(--line);font-size:.95rem}
+
+/* projects */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:1.5rem}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:22px;overflow:hidden;display:flex;flex-direction:column}
+.card:nth-child(2){border-radius:60px 22px 22px 22px}
+.card:nth-child(3){border-radius:22px 22px 60px 22px}
+.art{height:150px}
+.a1{background:repeating-linear-gradient(45deg,var(--gold) 0 14px,#f7cf7f 14px 28px)}
+.a2{background:radial-gradient(circle at 70% 40%,var(--lilac) 0 40px,transparent 41px),var(--teal)}
+.a3{background:linear-gradient(90deg,var(--plum) 50%,var(--lilac) 50%)}
+.card div:last-child{padding:1.4rem}
+.card h3{font:800 1.35rem var(--display);margin:0 0 .4rem}
+.card p{margin:0;color:var(--muted);font-size:.98rem}
+
+/* contact */
+.contact{background:var(--plum);color:var(--on-plum);text-align:center;border-radius:40px;padding:4rem 1.5rem;margin-bottom:3rem}
+.contact p{color:#DCD2EE;max-width:28rem;margin:0 auto 2rem}
+footer{text-align:center;color:var(--muted);padding-bottom:2.5rem;font-size:.9rem}
+
+@media(max-width:700px){
+  .about{grid-template-columns:1fr}.portrait{max-width:240px}
+  nav ul{gap:1rem}.o1{width:240px;height:240px}.o2,.o3{display:none}
+  .hero{padding:8rem 0 9rem}.btn.ghost{margin:.5rem 0 0}
+}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<header class="hero">
+  <nav><div class="wrap"><b>YN.</b>
+    <ul><li><a href="#about">About</a></li><li><a href="#work">Work</a></li><li><a href="#contact">Contact</a></li></ul></div></nav>
+  <div class="orb o1"></div><div class="orb o2"></div><div class="orb o3"></div>
+  <div class="wrap">
+    <h1>Hi, I’m Arjun Yadav.</h1>
+    <p>I design and build friendly, colourful websites and apps that people enjoy using.</p>
+    <div class="cta"><a class="btn" href="#work">See my work</a><a class="btn ghost" href="#contact">Say hello</a></div>
+  </div>
+  <svg class="wave" viewBox="0 0 1440 110" preserveAspectRatio="none" aria-hidden="true"><path d="M0,60 C240,120 480,0 720,50 C960,100 1200,10 1440,60 L1440,110 L0,110 Z"/></svg>
+</header>
+
+<main>
+<section id="about"><div class="wrap about">
+  <div><img src="c:\Users\ar583\OneDrive\Pictures\IMG_20260509_200449_939 - Copy.webp" alt="Arjun Yadav" class="circle-img" width="400px" height="400px" style="border-radius: 50%;"></div>
+  <div>
+    <h2>A little about me</h2>
+    <p style="color:blue">Hello! myself Ajun Yadav.</p><p style="color:red"> I'm a 19-year-old Polytechnic Computer Engineering student from Himachal Pradesh. With a +2 Medical background, my path into tech wasn't traditional, but my curiosity for building things on the web drove me here. Today, I combine my problem-solving roots with a passion for web development to craft clean, engaging, and modern websites</p>
+    <ul class="chips"><li>Web design</li><li>HTML &amp; CSS</li><li>JavaScript</li><li>Illustration</li><li>Photography</li></ul>
+  </div>
+</div></section>
+
+<section id="work"><div class="wrap">
+  <h2>Selected work</h2>
+  <div class="grid">
+    <article class="card"><div ><a target-blank href="file:///C:/Users/ar583/OneDrive/Desktop/wtpractical/practical8.html"> <img src="c:\Users\ar583\OneDrive\Desktop\wtpractical\new.png" height="200px" width="500px"></a></div><div><h3>Project one</h3><p>It is a web page including information about my collage</p></div></article>
+    <article class="card"><div ><a target-blank href="file:///C:/Users/ar583/OneDrive/Desktop/wtpractical/aboutus.html"><img src="c:\Users\ar583\OneDrive\Pictures\Screenshots\Screenshot 2026-10-29 195201.png" height="200px" width="500px"></a></div><div><h3>Project two</h3><p>It has the information about the collage .</p></div></article>
+    <article class="card"><div ><a target-blank href="file:///C:/Users/ar583/OneDrive/Desktop/wtpractical/p2.html"> <img src="c:\Users\ar583\OneDrive\Pictures\Screenshots\Screenshot 2026-10-29 195741.png" height="200px" width="500px"> </a>  </div><div><h3>Project three</h3><p>In this we to use the anchor tag how to use it ,and where to use it.</p></div></article>
+  </div>
+</div></section>
+
+<section id="contact"><div class="wrap">
+  <div class="contact">
+    <h2>Let’s work together</h2>
+    <p>Have a project, an idea or just want to say hi? I’d love to hear from you.</p>
+    <a class="btn" href="https://www.instagram.com/blexed_arjun_yadav?vrfl=OGdvZXg2MDljams1">Text me</a>
+  </div>
+</div></section>
+</main>
+<footer>© 2026 ARJUN Built with care.</footer>
+</body>
+</html>
